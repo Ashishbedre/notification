@@ -7,6 +7,7 @@ import Notification.example.Notification.service.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -25,7 +26,7 @@ public class NotificationServiceImp implements NotificationService {
     public boolean updateNotifications(List<Notifications> notificationsList) {
         for (Notifications notification : notificationsList) {
             // Retrieve the existing notification from the database (if it exists)
-            Optional<Notifications> existingNotificationOptional = notificationsRepository.findByCategory(notification.getCategory());
+            Optional<Notifications> existingNotificationOptional = notificationsRepository.findByCategoryAndLocaldatetime(notification.getCategory(),notification.getLocaldatetime());
 
             // Check if the notification exists in the database
             if (existingNotificationOptional.isPresent()) {
@@ -44,16 +45,20 @@ public class NotificationServiceImp implements NotificationService {
     }
 
     @Override
-    public String savecreatePost(List<Notificationsdto> notificationsdtos) {
+    public String saveCreatePost(List<Notificationsdto> notificationsdtos) {
         List<Notifications> notifications = new ArrayList<>();
-        for(Notificationsdto iterationNotificansdto : notificationsdtos){
+        LocalDateTime now = LocalDateTime.now();
+
+        for (Notificationsdto iterationNotificansdto : notificationsdtos) {
             Notifications notificationsave = new Notifications();
             notificationsave.setBody(iterationNotificansdto.getBody());
             notificationsave.setCategory(iterationNotificansdto.getCategory());
             notificationsave.setHeader(iterationNotificansdto.getHeader());
             notificationsave.setReadStatus(false);
+            notificationsave.setLocaldatetime(now);
             notifications.add(notificationsave);
         }
+
         notificationsRepository.saveAll(notifications);
         return "Created Post";
     }

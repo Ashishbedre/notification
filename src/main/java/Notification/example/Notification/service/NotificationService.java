@@ -13,5 +13,5 @@ public interface NotificationService {
 
     boolean updateNotifications(List<Notifications> notificationsList);
 
-    String savecreatePost(List<Notificationsdto> notificationsdtos);
+    String saveCreatePost(List<Notificationsdto> notificationsdtos);
 }

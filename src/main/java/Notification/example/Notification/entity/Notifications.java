@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.time.LocalDateTime;
+
 @Entity
 public class Notifications {
     @Id
@@ -15,6 +17,9 @@ public class Notifications {
     private String body;
     private boolean readStatus;
     private String category;
+
+    private LocalDateTime localdatetime;
+
 
     public Long getId() {
         return id;
@@ -54,6 +59,14 @@ public class Notifications {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public LocalDateTime getLocaldatetime() {
+        return localdatetime;
+    }
+
+    public void setLocaldatetime(LocalDateTime localdatetime) {
+        this.localdatetime = localdatetime;
     }
 }
 

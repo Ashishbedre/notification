@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/notifications")
+@RequestMapping("/v1/DashBoard")
 @CrossOrigin
-public class NotificationsController {
+public class DashBoard {
 
     @Autowired
     private NotificationService notificationService;
@@ -31,7 +31,7 @@ public class NotificationsController {
 
     @PostMapping("/createPost")
     public ResponseEntity<String> createPost(@RequestBody List<Notificationsdto> updateNotifications){
-        return  new ResponseEntity<>(notificationService.savecreatePost(updateNotifications),HttpStatus.OK);
+        return  new ResponseEntity<>(notificationService.saveCreatePost(updateNotifications),HttpStatus.OK);
     }
 
 }
