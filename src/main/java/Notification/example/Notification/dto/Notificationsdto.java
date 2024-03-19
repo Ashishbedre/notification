@@ -4,6 +4,7 @@ public class Notificationsdto {
     private String header;
     private String body;
     private String category;
+    private String subCategory;
 
     public String getHeader() {
         return header;
@@ -27,5 +28,13 @@ public class Notificationsdto {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getSubCategory() {
+        return subCategory;
+    }
+
+    public void setSubCategory(String subCategory) {
+        this.subCategory = subCategory;
     }
 }

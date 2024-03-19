@@ -36,6 +36,8 @@ public class NotificationServiceImp implements NotificationService {
                 existingNotification.setBody(notification.getBody());
                 existingNotification.setReadStatus(notification.isReadStatus());
                 existingNotification.setCategory(notification.getCategory());
+//                Add subCategory
+                existingNotification.setSubCategory((notification.getSubCategory()));
 
                 // Save the updated notification
                 Notifications updatedNotification = notificationsRepository.save(existingNotification);
@@ -54,6 +56,8 @@ public class NotificationServiceImp implements NotificationService {
             notificationsave.setBody(iterationNotificansdto.getBody());
             notificationsave.setCategory(iterationNotificansdto.getCategory());
             notificationsave.setHeader(iterationNotificansdto.getHeader());
+//            Add subCategory
+            notificationsave.setSubCategory(iterationNotificansdto.getSubCategory());
             notificationsave.setReadStatus(false);
             notificationsave.setLocaldatetime(now);
             notifications.add(notificationsave);

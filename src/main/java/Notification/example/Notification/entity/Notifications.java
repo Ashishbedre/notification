@@ -18,6 +18,8 @@ public class Notifications {
     private boolean readStatus;
     private String category;
 
+    private String subCategory;
+
     private LocalDateTime localdatetime;
 
 
@@ -67,6 +69,14 @@ public class Notifications {
 
     public void setLocaldatetime(LocalDateTime localdatetime) {
         this.localdatetime = localdatetime;
+    }
+
+    public String getSubCategory() {
+        return subCategory;
+    }
+
+    public void setSubCategory(String subCategory) {
+        this.subCategory = subCategory;
     }
 }
 
