@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/DashBoard")
+@RequestMapping("/V1/DashBoard")
 @CrossOrigin
 public class DashBoard {
 
