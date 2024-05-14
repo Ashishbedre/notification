@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface NotificationsRepository extends JpaRepository<Notifications,Long> {
     List<Notifications> findByReadStatusFalseOrReadStatusNull();
 
-    Optional<Notifications> findByCategoryAndLocaldatetime(String category, LocalDateTime localDateTime);
+    Optional<Notifications> findByCategoryAndLocaldatetimeAndId(String category, LocalDateTime localDateTime,Long id);
 
 
 }
