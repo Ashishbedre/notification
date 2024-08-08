@@ -26,7 +26,7 @@ public class NotificationServiceImp implements NotificationService {
     public boolean updateNotifications(List<Notifications> notificationsList) {
         for (Notifications notification : notificationsList) {
             // Retrieve the existing notification from the database (if it exists)
-            Optional<Notifications> existingNotificationOptional = notificationsRepository.findByCategoryAndLocaldatetimeAndId(notification.getCategory(),notification.getLocaldatetime(),notification.getId());
+            Optional<Notifications> existingNotificationOptional = notificationsRepository.findById(notification.getId());
 
             // Check if the notification exists in the database
             if (existingNotificationOptional.isPresent()) {

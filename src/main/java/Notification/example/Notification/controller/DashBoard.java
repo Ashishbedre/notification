@@ -7,6 +7,7 @@ import Notification.example.Notification.service.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/V1/DashBoard")
 @CrossOrigin
+@PreAuthorize("hasAnyRole('client_user', 'client_admin')")
 public class DashBoard {
 
     @Autowired
